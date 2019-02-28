@@ -30,7 +30,7 @@ void processData()
 
     while (!data.eof())
     {
-        // somehow read the AWSOME data
+        // somehow read the AWESOME data
         ++recordCounter;
     }
 
@@ -59,9 +59,9 @@ void findMaxVisitorsTimestamp()
     // тут мы извращённо достаём данные
     for (string dataLine; getline(data, dataLine);)
     {
-        string action(dataLine.substr(8, 3));
+        string action(dataLine.substr(0, 3));
 
-        if (action == "OUT")
+        if (action == "IN ")
         {
             if (++visitors >= maxVisitors)
             {
@@ -70,10 +70,10 @@ void findMaxVisitorsTimestamp()
                     maxVisitors = visitors;
                     maxTimestamp.clear();
                 }
-                maxTimestamp.push_back(dataLine.substr(14, 19));
+                maxTimestamp.push_back(dataLine.substr(4, 10));
             }
         }
-        else if (action == "IN ")
+        else if (action == "OUT")
         {
             --visitors;
         }

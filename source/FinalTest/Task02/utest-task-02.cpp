@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h> // Google Test Framework
 
-TEST(finalTest_task_01, countDigitTest)
+TEST(finalTest_task_02, countDigitTest)
 {
     findMaxVisitorsTimestamp();
     SUCCEED(); // or fail
