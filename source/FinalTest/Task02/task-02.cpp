@@ -26,12 +26,11 @@ void processData()
     int recordCounter = 0;
 
     const int baseSize = 5;
-    auto *newHashTable = new List();
-    newHashTable->buckets.resize(baseSize);
+    //auto *list= new List();
 
     while (!data.eof())
     {
-        // somehow read the f***ing data
+        // somehow read the AWSOME data
         ++recordCounter;
     }
 
@@ -40,7 +39,7 @@ void processData()
 }
 
 
-int task02()
+void findMaxVisitorsTimestamp()
 {
     const char fileName[] = "data.txt";
     ifstream data(fileName);
@@ -55,6 +54,7 @@ int task02()
     int visitors = 0;
     int maxVisitors = 0;
     vector<string> maxTimestamp;
+    //List *maxTimeStamp = *newList();
 
     // тут мы извращённо достаём данные
     for (string dataLine; getline(data, dataLine);)
