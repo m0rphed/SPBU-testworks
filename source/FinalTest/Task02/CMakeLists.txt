@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.12)
 
 # Define all homework files
 set(TASKS_SRCS  task-02.cpp
-        )
+                List.cpp)
 
 # Define all tests
 set(TESTS       utest-task-02.cpp)

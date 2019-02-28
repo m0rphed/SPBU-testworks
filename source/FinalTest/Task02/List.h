@@ -9,7 +9,7 @@ List *newList();
 //deletes list completely
 void deleteList(List *&list);
 
-//inserts a new element to the beginning of the list
+// inserts a new element to the beginning of the list
 void insert(List *list, const int value);
 
 //inserts an element after another element
