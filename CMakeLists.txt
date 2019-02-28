@@ -39,8 +39,14 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include")
 endif ()
 
-# Locate solutions for FinalTest
-add_subdirectory(source/FinalTest)
+# Locate solutions for FinalTest-01
+add_subdirectory(source/FinalTest/Task01)
+
+# Locate solutions for FinalTest-02
+add_subdirectory(source/FinalTest/Task02)
+
+# Locate solutions for FinalTest-03
+add_subdirectory(source/FinalTest/Task03)
 
 set(SOURCE_FILES init_gtest.cpp)
 add_executable(spbuTestWorks ${SOURCE_FILES})
