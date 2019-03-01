@@ -1,7 +1,9 @@
+#include "Graph.h"
+
 #include <iostream>
 #include <fstream>
-#include "Graph.h"
 #include <locale>
+
 using namespace std;
 
 void makeGraphFromFile()
@@ -27,8 +29,12 @@ void makeGraphFromFile()
     data.close();
 
     bool **graph = createGraph(size);
+
     graph = fromIncToAdjMatrix(matrix, size, roads, graph);
 
+    cout << endl;
+
+    // по инцедентности легче смотреть лучше видно
     printAdjacencyMatrix(graph, size);
 
     bool **visited = createGraph(size);
@@ -49,7 +55,8 @@ void makeGraphFromFile()
         }
         if (flag)
         {
-            cout << k << endl;
+            cout << k;
+            cout << " ";
         }
     }
 
@@ -57,8 +64,8 @@ void makeGraphFromFile()
     {
         delete[] matrix[i];
     }
-    delete[] matrix;
 
+    delete[] matrix;
     destroyGraph(visited, size);
     destroyGraph(graph, size);
 }
