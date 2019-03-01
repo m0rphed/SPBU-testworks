@@ -14,3 +14,5 @@ void sortByLoyalty(Node **list, int const listSize);
 void sortBySecondName(Node **list, int const listSize);
 
 void printList(Node **list, int const listSize);
+
+void StalinInterface(int killCount = 0, int sendCount = 0);

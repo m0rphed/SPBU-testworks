@@ -17,7 +17,7 @@
 
 using namespace std;
 
-void StalinInterface()
+void StalinInterface(int killCount, int sendCount)
 {
     string fileName = "data.txt";
     ifstream data(fileName, ios::in);
@@ -31,13 +31,19 @@ void StalinInterface()
 
     cout << "\nНачинаем...\n" << endl;
 
-    int killCount = 0;
-    cout << "Товарищ Сталин, сколько расстреливаем сегодня?" << endl;
-    cin >> killCount;
+    if (killCount == 0)
+    {
+        killCount = 0;
+        cout << "Товарищ Сталин, сколько расстреливаем сегодня?" << endl;
+        cin >> killCount;
+    }
 
-    int sendCount = 0;
-    cout << "Товарищ Сталин, скольких предателей в Сибирь?" << endl;
-    cin >> sendCount;
+    if (sendCount == 0)
+    {
+        sendCount = 0;
+        cout << "Товарищ Сталин, скольких предателей в Сибирь?" << endl;
+        cin >> sendCount;
+    }
 
     Node **list = nullptr;
     int listSize = 0;
