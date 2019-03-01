@@ -1,7 +1,7 @@
 #include <iostream>
-#include <>
+#include <gtest/gtest.h> // Google Test Framework
 
-TEST()
+TEST(task02, simpleTest)
 {
-
+    FAIL();
 }
