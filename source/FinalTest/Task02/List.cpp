@@ -102,6 +102,8 @@ void LinkedList::sortedInsert(const ElementType &data)
             {
                 head = newNode;
             };
+
+            ++length;
             return;
         }
 

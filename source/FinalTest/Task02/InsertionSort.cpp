@@ -14,6 +14,8 @@ void insertionSort(LinkedList *&list)
         auto *next = currentNode->next;
 
         // insert current in sorted linked list
+        // using one of the linked list methods,
+        // which inserts elements in ascending order
         sorted->sortedInsert(currentNode->data);
 
         // Update current
