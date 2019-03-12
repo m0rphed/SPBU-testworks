@@ -66,7 +66,7 @@ void LinkedList::shift(const ElementType &data)
     ++length;
 }
 
-void LinkedList::smartInsert(const ElementType &data)
+void LinkedList::sortedInsert(const ElementType &data)
 {
     auto *newNode = new Node(0);
     newNode->data = data;
@@ -234,7 +234,7 @@ void LinkedList::linkedListInterface()
             case 1: // 1 - Add value to the sorted list
                 cout << "Добавление значения в список.\n\tВведите значение: ";
                 cin >> value;
-                LinkedList::smartInsert(value);
+                LinkedList::sortedInsert(value);
                 cout << endl;
                 break;
 
@@ -259,7 +259,7 @@ void LinkedList::linkedListInterface()
 
 void LinkedList::insertElement(const ElementType &data)
 {
-    auto *newNode = new Node(0);
+    auto *newNode = new Node();
     newNode->data = data;
 
     // previous node of linked list
@@ -285,18 +285,16 @@ void LinkedList::insertElement(const ElementType &data)
     auto *current = head;
     while (current)
     {
-        if (previous)
+        if (!current->next)
         {
-            previous->next = newNode;
+            current->next = newNode;
+            ++length;
             return;
         }
 
-        previous = current;
         current = current->next;
     }
 
-    previous->next = newNode;
-    ++length;
 }
 
 Node *LinkedList::getElementByPosition(const int &position)
@@ -363,4 +361,9 @@ ElementType LinkedList::getDataByPosition(const int &position)
     }
 
     throw runtime_error("ERROR: no element with such position");
+}
+
+Node *LinkedList::getHead()
+{
+    return this->head;
 }

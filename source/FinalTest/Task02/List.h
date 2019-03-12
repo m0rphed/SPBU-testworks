@@ -40,14 +40,17 @@ public:
     // Func. to iterate through the list and get the real length of the list
     int countNodes();
 
-    // Getter-function
+    // Getter-function for length
     int getLength();
+
+    // Getter-function for head
+    Node *getHead();
 
     // Shifts linked list, insert new element at the position of head
     void shift(const ElementType &value); // changes length
 
     // Inserts element, doesn't break the order of the items in the list
-    void smartInsert(const ElementType &data); // changes length
+    void sortedInsert(const ElementType &data); // changes length
 
     // Inserts new element
     void insertElement(const ElementType &data);
