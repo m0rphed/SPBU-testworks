@@ -1,12 +1,6 @@
-#include <vector>
-#include <unordered_map>
+#include "graph.h"
 
-struct Graph
-{
-	int verticesAmount = 0;
-	std::vector<std::vector<int>> edges;
-	std::unordered_map<int, int> vertices;
-};
+using namespace std;
 
 Graph *newGraph()
 {
@@ -50,16 +44,16 @@ void addEdge(Graph *graph, const int vertexFrom, const int vertexTo, const int n
 	graph->edges[graph->vertices[vertexFrom]][graph->vertices[vertexTo]] = newLength;
 }
 
-std::vector<int> adjacent(Graph *graph, const int vertex)
+vector<int> adjacent(Graph *graph, const int vertex)
 {
-	std::vector<int> adjacentNodes;
+	vector<int> adjacentNodes;
 
 	if (graph->vertices.count(vertex) == 0)
 	{
 		return adjacentNodes;
 	}
 
-	for (const std::pair<int, int> &current : graph->vertices)
+	for (auto &current : graph->vertices)
 	{
 		if (graph->edges[graph->vertices[vertex]][current.second] != 0)
 		{
@@ -96,7 +90,7 @@ void deleteGraph(Graph *&graph)
 	graph = nullptr;
 }
 
-size_t verticesAmount(Graph *graph)
+unsigned int verticesAmount(Graph *graph)
 {
 	return graph->verticesAmount;
 }
