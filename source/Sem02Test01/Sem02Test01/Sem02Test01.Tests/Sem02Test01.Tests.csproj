@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.11.0" />
     <PackageReference Include="NUnit.ConsoleRunner" Version="3.10.0" />
+    <PackageReference Include="NUnit.Runners" Version="3.10.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
     <PackageReference Include="StyleCop" Version="6.1.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
