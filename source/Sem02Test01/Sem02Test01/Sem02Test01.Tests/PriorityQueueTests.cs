@@ -23,7 +23,7 @@
             Assert.AreEqual("Priority 10", sut.Dequeue());
             Assert.AreEqual("Priority 15", sut.Dequeue());
 
-            Assert.Throws<ApplicationException>(() =>
+            Assert.Throws<EmptyQueueException>(() =>
             {
                 sut.Dequeue();
             });
@@ -46,7 +46,7 @@
             Assert.AreEqual("Priority 10", sut.Dequeue());
             Assert.AreEqual("Priority 15", sut.Dequeue());
 
-            Assert.Throws<ApplicationException>(() =>
+            Assert.Throws<EmptyQueueException>(() =>
             {
                 sut.Dequeue();
             });
@@ -68,7 +68,7 @@
             Assert.AreEqual("Priority 5 X2", sut.Dequeue());
             Assert.AreEqual("Priority 1", sut.Dequeue());
 
-            Assert.Throws<ApplicationException>(() =>
+            Assert.Throws<EmptyQueueException>(() =>
             {
                 sut.Dequeue();
             });
