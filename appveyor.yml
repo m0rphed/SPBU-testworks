@@ -5,7 +5,6 @@ environment:
   matrix:
   - solution_path: source\Sem02Test01\Sem02Test01\Sem02Test01.sln
 
-
 before_build:
   - nuget restore %solution_path%
 
