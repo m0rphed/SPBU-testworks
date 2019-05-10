@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sem02Test02", "Sem02Test02.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sem02Test02.Tests", "..\Sem02Test02.Tests\Sem02Test02.Tests.csproj", "{E1C7F770-FBDB-4E23-9C30-AE8DEAF2CA1D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CE40E0AA-42C4-4C42-B91C-8CBCD61548E6}"
+	ProjectSection(SolutionItems) = preProject
+		..\Description.md = ..\Description.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
