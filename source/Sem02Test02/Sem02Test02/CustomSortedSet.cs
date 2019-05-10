@@ -1,61 +1,54 @@
 ﻿namespace Sem02Test02
 {
-    using System;
-    using System.Collections;
     using System.Collections.Generic;
 
-    // б) Реализовать на его основе класс SortedSet,
-    // представляющий АТД отсортированное множество.
+    // Б) Реализовать на его основе класс SortedSet,
+    //    представляющий АТД отсортированное множество.
 
     public class CustomSortedSet<T>
     {
-        private List<T> _setValues = null;
+        private List<List<T>> _listsOfLists;
+        private IComparer<List<T>> _listComparer;
 
-        public static void Swap<T>(IList<T> list, int indexA, int indexB)
-        {
-            T tmp = list[indexA];
-            list[indexA] = list[indexB];
-            list[indexB] = tmp;
-        }
-
-        public CustomSortedSet(IComparer<T> comparer)
+        public CustomSortedSet(ListComparer<T> comparer)
         {
             Count = 0;
+            _listsOfLists = new List<List<T>>();
+            _listComparer = comparer;
         }
 
         public int Count { get; private set; }
 
-        public bool Add(T item)
+        public bool Add(List<T> newListToAdd)
         {
-            if (Contains(item))
+            if (Contains(newListToAdd))
             {
                 return false;
             }
-            else
+
+            int index = 0;
+
+            while (index < _listsOfLists.Count && _listComparer.Compare(_listsOfLists[index], newListToAdd) == 1)
             {
-                _setValues.Add(item);
-                Count++;
-
-                int index = Count - 1;
-                while (Comparer<T>.Default.Compare(_setValues[index], _setValues[index - 1]) == 1)
-                {
-                    Swap(_setValues, index, index - 1);
-                }
-
-                return true;
+                index++;
             }
+
+            _listsOfLists.Add(newListToAdd);
+            Count++;
+            return true;
         }
 
         public void Clear()
         {
-            _setValues = null;
+            _listsOfLists = null;
+            Count = 0;
         }
 
-        public bool Contains(T item)
+        public bool Contains(List<T> newList)
         {
-            foreach (T value in _setValues)
+            foreach (var existingList in _listsOfLists)
             {
-                if (Comparer<T>.Default.Compare(item, value) == 0)
+                if (_listComparer.Compare(newList, existingList) == 0)
                 {
                     return true;
                 }
@@ -64,12 +57,12 @@
             return false;
         }
 
-        public int GetIndexByValue(T valueToCheck)
+        public int GetIndex(List<T> listToCheck)
         {
             var index = 0;
-            foreach (T value in _setValues)
+            foreach (var existingList in _listsOfLists)
             {
-                if (Comparer<T>.Default.Compare(valueToCheck, value) == 0)
+                if (_listComparer.Compare(listToCheck, existingList) == 0)
                 {
                     return index;
                 }
@@ -80,9 +73,43 @@
             return -1;
         }
 
-        public bool Remove(T item)
+        public bool Remove(List<T> innerListToRemove)
         {
-            Fo
+            var indexOfInnerList = GetIndex(innerListToRemove);
+
+            if (indexOfInnerList == -1)
+            {
+                return false;
+            }
+
+            _listsOfLists.RemoveAt(indexOfInnerList);
+            Count--;
+
+            return true;
+        }
+
+        public bool RemoveByIndex(int indexOfInnerList)
+        {
+            if (indexOfInnerList > Count)
+            {
+                return false;
+            }
+
+            _listsOfLists.RemoveAt(indexOfInnerList);
+            Count--;
+            return true;
+        }
+
+        public string GetPrinableRepresentation()
+        {
+            string stringToPrint = string.Empty;
+            foreach (var list in _listsOfLists)
+            {
+                stringToPrint += list.ToString();
+                stringToPrint += ", ";
+            }
+
+            return stringToPrint;
         }
     }
 }

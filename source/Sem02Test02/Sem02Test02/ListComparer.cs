@@ -1,13 +1,12 @@
 ﻿namespace Sem02Test02
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    // а) Реализовать интерфейс IComparer<T> для объектов классов List,
-    // сравнивающих 2 объекта по количеству элементов, содержащихся в списке.
+    // А) Реализовать интерфейс IComparer<T> для объектов классов List,
+    //    сравнивающих 2 объекта по количеству элементов, содержащихся в списке.
+
+    /// <inheritdoc />
+    /// <typeparam name="T">type of elements in the lists</typeparam>
     public class ListComparer<T> : IComparer<List<T>>
     {
         public int Compare(List<T> x, List<T> y)
