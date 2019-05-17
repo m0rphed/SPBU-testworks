@@ -5,6 +5,7 @@
     /// <inheritdoc />
     public class StringComparerByLength : IComparer<string>
     {
+        /// <inheritdoc />
         public int Compare(string x, string y)
         {
             if (x.Length < y.Length)

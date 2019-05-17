@@ -3,6 +3,10 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Class implements Bubble Sort for Lists (generic static method),
+    /// uses comparer object, which must be specified.
+    /// </summary>
     public class BubbleSort
     {
         /// <summary>

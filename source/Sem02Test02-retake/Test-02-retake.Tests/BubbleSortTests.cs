@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Test_02_retake.Tests
+﻿namespace Test_02_retake.Tests
 {
     using System.Collections.Generic;
     using NUnit.Framework;
@@ -51,6 +49,15 @@ namespace Test_02_retake.Tests
             var comparer = Comparer<int>.Default;
             BubbleSort.BubbleSortWithComparer(sut, comparer);
             Assert.AreEqual(new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }, sut);
+        }
+
+        [Test]
+        public static void SortCharsAlphabetically()
+        {
+            var sut = new List<char> { 'б', 'п', 'в', 'ф', 'д', 'т', 'з', 'с', 'н', 'л', 'р' };
+            var comparer = Comparer<char>.Default;
+            BubbleSort.BubbleSortWithComparer(sut, comparer);
+            Assert.AreEqual(new List<char> { 'б', 'в', 'д', 'з', 'л', 'н', 'п', 'р', 'с', 'т', 'ф' }, sut);
         }
     }
 }
